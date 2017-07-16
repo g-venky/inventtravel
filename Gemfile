@@ -29,6 +29,7 @@ gem 'jquery-rails'
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'sprockets-rails', '~> 2.3.2'
 gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'bootstrap4'
+gem 'foreman'
 
 gem "react_on_rails", "8.0.0"
 
@@ -58,3 +59,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'mini_racer', platforms: :ruby
+gem 'webpacker_lite'
