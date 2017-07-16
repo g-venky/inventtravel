@@ -30,6 +30,8 @@ gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'sprockets-rails', '~> 2.3.2'
 gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'bootstrap4'
 
+gem "react_on_rails", "8.0.0"
+
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
