@@ -24,4 +24,4 @@ class Notification < ApplicationRecord
     where(read: false)
   end
 end
-end
+
