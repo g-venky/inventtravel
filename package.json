@@ -2,8 +2,9 @@
   "scripts": {
     "postinstall": "cd client && yarn install"
   },
-
   "name": "inventtravel",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
 }

@@ -1,5 +1,8 @@
-<p>Welcome <%= @email %>!</p>
+<p>INVENTtravel.com team welcomes you to the first ever online business network for travel trade, where you can connect with multiple travel partners from across the globe for free.</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>To complete your sign up please click on the below link:</p>
+<p><%= link_to 'Verify my Account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<br>
+<br>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+Write to us at <a href="mailto:mail@inventtravel.com">mail@inventtravel.com</a>

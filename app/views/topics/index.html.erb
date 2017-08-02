@@ -1,0 +1,20 @@
+<h1>Discussions</h1>
+<%= link_to 'Add Your Topic', new_topic_path %>
+<table>
+  <% @topics.each do |topic| %>
+    <tr>
+      <td><h1><%= topic.discussion %></h1></td>
+      <td><h6><%= topic.created_at.strftime('%b %d, %Y') %></h6></td>
+    </tr>
+    <tr>
+      <td><h4><%= topic.details %></h4></td>
+    </tr>
+    <tr>
+      <td><h4><%= link_to 'comment', topic_path(topic) %></h4></td>
+      <td><%= link_to 'Destroy', topic_path(topic),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+     
+    </tr>
+  <% end %>
+</table>

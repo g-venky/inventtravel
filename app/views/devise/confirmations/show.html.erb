@@ -1,0 +1,21 @@
+<div id="home">
+  <div class="col-md-3 col-sm-3 col-sm-offset-4" >
+    <div class="div-trans form-box">
+      <h3 class="panel-title">Account Activation <% if resource.try(:email) %> for <%= resource.email %><% end %></h3>
+
+      <%= form_for resource, :as => resource_name, :url => update_user_confirmation_path, :html => {:method => 'patch'}, :id => 'activation-form' do |f| %>
+        <%= devise_error_messages! %>
+          <% if @requires_password %>
+            <div class="form-group">
+              <p><%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Password" %>
+            </div>
+            <div class="form-group">
+              <p><%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: "Confirm password" %>
+            </div>
+          <% end %>
+          <%= hidden_field_tag :confirmation_token,@confirmation_token %>
+          <p><%= f.submit "Activate", class: "btn btn-info btn-sm" %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
