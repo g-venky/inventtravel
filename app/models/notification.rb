@@ -1,7 +1,7 @@
 class Notification < ApplicationRecord
-	belongs_to :notifiable#, polymorphic: true
-  belongs_to :recipient#, class_name: "User"#, inverse_of: :receiver
-  belongs_to :sender#, class_name: "User"#, inverse_of: :sent_by
+	#belongs_to :notifiable#, polymorphic: true
+ # belongs_to :recipient#, class_name: "User"#, inverse_of: :receiver
+  #belongs_to :sender#, class_name: "User"#, inverse_of: :sent_by
 
   after_create :notify, if: Proc.new { |n| n.action != 'message' }
 
