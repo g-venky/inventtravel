@@ -8,6 +8,7 @@
   <strong>Details:</strong>
   <%= @topic.details %>
 </p>
+<%= link_to 'Edit', edit_topic_path(@topic) %> 
  
 <h2>Comments</h2>
 <%= render @topic.comments %>
@@ -15,5 +16,5 @@
 <h2>Add a comment:</h2>
 <%= render 'comments/form' %>
  
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
+
 <%= link_to 'Back', topics_path %>

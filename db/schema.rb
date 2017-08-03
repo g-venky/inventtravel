@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802143044) do
+ActiveRecord::Schema.define(version: 20170803053027) do
 
   create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -175,6 +175,7 @@ ActiveRecord::Schema.define(version: 20170802143044) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.text "company_id"
+    t.string "bio", default: "No bio"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["mobile_number"], name: "index_users_on_mobile_number", unique: true

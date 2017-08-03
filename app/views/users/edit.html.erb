@@ -1,0 +1,200 @@
+<div class="" style="width=100%">
+  <div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Profile Details</h3>
+      </div>
+      <div class="panel-body">
+        <div role="form">
+          <%= form_for @profile do |f| %>
+            <% if @profile.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+                <ul>
+                  <% @profile.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div class="panel">
+              <div class="profile-panel-heading">
+                <h3 class="panel-title">Personal Details</h3>
+              </div>
+              <fieldset>
+                <table width="100%">
+                  <tr height="40">
+                    <td width="100"><label>First Name</label></td>
+                    <td><%= current_user.first_name %></td>
+                    <td width="60">&nbsp;</td>
+                    <td width="100"><label>Last Name</label></td>
+                    <td><%= current_user.last_name %></td>
+                  </tr>
+                  <tr height="40">
+                    <td><label>Mobile</label></td>
+                    <td><%= current_user.mobile_number %></td>
+                    <td>&nbsp;</td>
+                    <td><label>Email</label></td>
+                    <td><%= current_user.email %></td>
+                  </tr>
+                  <tr height="40">
+                    <td><%= f.label :organization %></td>
+                    <td><%= f.text_field :organization, autofocus: true, class: "form-control"%></td>
+                    <td>&nbsp;</td>
+                    <td><%= f.label :designation %></td>
+                    <td><%= f.text_field :designation, class: "form-control" %></td>
+                  </tr>
+                  <tr height="40">
+                    <td><%= f.label :website %></td>
+                    <td><%= f.text_field :website, class: "form-control" %></td>
+                  </tr>
+                </table>
+              </fieldset>
+            </div>
+            <div class="panel">
+              <div class="profile-panel-heading">
+                <h3 class="panel-title">Addresses</h3>
+              </div>
+              <table width="100%">
+                <%= f.fields_for :address  do |addresses_form| %>
+                  <tr height="40">
+                    <td width="100"><%= addresses_form.label :street %></td>
+                    <td><%= addresses_form.text_field :street, class: "form-control" %></td>
+                    <td width="60">&nbsp;</td>
+                    <td><%= addresses_form.label :city %></td>
+                    <td><%= addresses_form.text_field :city, class: "form-control" %></td>
+                  </tr>
+                  <tr height="40">
+                    <td><%= addresses_form.label :state %></td>
+                    <td><%= addresses_form.text_field :state, class: "form-control" %></td>
+                    <td>&nbsp;</td>
+                    <td><label>Postal Code</label></td>
+                    <td><%= addresses_form.text_field :post_code, class: "form-control" %></td>
+                  </tr>
+                  <tr height="40">
+                    <td><%= addresses_form.label :country %></td>
+                    <td><%= addresses_form.text_field :country, class: "form-control" %></td>
+                  </tr>
+                <% end %>
+              </table>
+            </div>
+            <div class="panel">
+              <div class="profile-panel-heading">
+                <h3 class="panel-title">Travel Segment</h3>
+              </div>
+              <fieldset>
+                <%= f.fields_for :travel_segment  do |travel_segment_form| %>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <fieldset><%= travel_segment_form.check_box :fit %> FIT</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= travel_segment_form.check_box :adventures_and_sports_tourism %> Adventures & sports tourism</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= travel_segment_form.check_box :cruises %> Cruises</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= travel_segment_form.check_box :business_travel %> Business Travel</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= travel_segment_form.check_box :git %> Git</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= travel_segment_form.check_box :railway %> Railway</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= travel_segment_form.check_box :religious_culture_and_heritage_tours %> Religious Culture & Heritage Tours</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= travel_segment_form.check_box :accommodation %> Accommodation</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= travel_segment_form.check_box :airliens %> Airlines</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= travel_segment_form.check_box :mice %> Airlines</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= travel_segment_form.check_box :wedding_and_honeymoon %> Wedding & Honeymoon</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= travel_segment_form.check_box :coach %> Coach</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= travel_segment_form.check_box :health_and_wellness %> Health & Wellness</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= travel_segment_form.check_box :ticketing %> Ticketing</fieldset>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div><%= travel_segment_form.label :others %></div>
+                    <div><%= travel_segment_form.text_field :others, class: "form-control" %></div>
+                  </div>
+                <% end %>
+              <fieldset>
+            </div>
+            <div class="panel">
+              <div class="profile-panel-heading">
+                <h3 class="panel-title">Geographical Areas</h3>
+              </div>
+              <fieldset>
+                <%= f.fields_for :geographical_area  do |geographical_loc| %>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <fieldset><%= geographical_loc.check_box :america %> America</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= geographical_loc.check_box :india %> India</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= geographical_loc.check_box :australia_pecific %> Australia/Pecific</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= geographical_loc.check_box :uk_ireland %> UK & Ireland</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= geographical_loc.check_box :europe_and_mediterranean %> Europe & Mediterranean</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= geographical_loc.check_box :asia %> Asia</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= geographical_loc.check_box :middle_east %> Middle East</fieldset>
+                    </div>
+                    <div class="col-sm-4">
+                      <fieldset><%= geographical_loc.check_box :africa %> Africa</fieldset>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div><%= geographical_loc.label :others %></div>
+                    <div><%= geographical_loc.text_field :others, class: "form-control" %></div>
+                  </div>
+                <% end %>
+              <fieldset>
+            </div>
+            <div class="panel">
+              <div class="profile-panel-heading">
+                <h3 class="panel-title">Profile Photo</h3>
+              </div>
+              <%if @profile.avatar.url%>
+                <div>
+                  <img src=<%=@profile.avatar.url %>  class="img-rounded" alt="User Image" width="150" height="150">
+                </div>
+              <% end %>
+              <fieldset>
+                  <%= f.file_field :avatar %>
+              <fieldset>
+            </div>
+            <div class="actions">
+              <%= f.submit "Submit", class: "btn btn-info btn-sm"%>
+              <%= link_to 'View Profile', @profile, class: "btn btn-info btn-sm" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

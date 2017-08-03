@@ -4,18 +4,26 @@
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
+      <tr height="40">
+          <td width="100"><%= f.label :first_name %></td>
+          <td><%= f.text_field :first_name, autofocus: true, class: "form-control"%></td>
+      </tr>
+
+      <tr height="40">
+          <td><%= f.label :last_name %></td>
+          <td><%= f.text_field :last_name, autofocus: true, class: "form-control" %></td>
+      </tr>
 
       <div class="form-group">
+        <%= f.label :Email %>
         <%= f.email_field :email, autofocus: false, class: 'form-control', placeholder: "Email Address" %>
       </div>
 
       <div class="form-group">
+        <%= f.label :Password %>
         <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password' %>
       </div>
 
-      <div class="form-group">
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirm Password' %>
-      </div>
 
       <div class="form-group">
         <%= f.submit "Sign up", class: "btn btn-primary btn-block btn-lg" %>

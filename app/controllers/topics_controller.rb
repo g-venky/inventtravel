@@ -1,5 +1,9 @@
 class TopicsController < ApplicationController
- 
+  before_action :find_topic, only: [:edit, :update, :show, :delete]
+
+  def home
+
+  end
   def index
     @topics = Topic.all
   end
@@ -48,6 +52,8 @@ class TopicsController < ApplicationController
       params.require(:topic).permit(:discussion, :details)
     end
 
-
+    def find_topic
+    @topic = Topic.find(params[:id])
+  end
 
 end
